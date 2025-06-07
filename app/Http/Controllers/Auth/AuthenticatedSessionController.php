@@ -30,12 +30,10 @@ class AuthenticatedSessionController extends Controller
         if ($request->user()->nivel === 'admin') {
             return redirect()->intended(route('admin.dashboard'));
         } elseif ($request->user()->nivel === 'cliente') {
-            return redirect()->intended(route('dashboard'));
+            return redirect()->intended(route('user.dashboard'));
         } else {
             return redirect('login')->with('error', 'Seus dados estão incorretos!');
         }
-
-        return redirect()->intended(route('dashboard'));
     }
 
     /**
